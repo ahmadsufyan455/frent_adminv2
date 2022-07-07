@@ -1,1 +1,40 @@
-<p>login works!</p>
+<!-- <div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <h3>Sign In</h3>
+            <div class="formGroup">
+                <input type="text" class="formControl" placeholder="Email" #userName required>
+            </div>
+            <div class="formGroup">
+                <input type="password" class="formControl" placeholder="Password" #userPassword required>
+            </div>
+            <div class="formGroup">
+                <input type="button" class="btn btnPrimary" value="Log in"
+                    (click)="authService.signIn(userName.value, userPassword.value)">
+            </div>
+    </div>
+</div> -->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="https://www.frentjogja.com/wp-content/uploads/2021/06/logo-sewa-motor-jogja.png" id="icon" alt="User Icon" style="width: 150px; padding: 20px 20px 20px 20px;" />
+        </div>
+
+        <!-- Login Form -->
+        <form>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email" #userName required>
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" #userPassword required>
+            <input type="button" class="fadeIn fourth" value="Masuk" (click)="authService.signIn(userName.value, userPassword.value)">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <p style="color: #888888;">Frent Jogja Database V2</p>
+        </div>
+
+    </div>
+</div>  

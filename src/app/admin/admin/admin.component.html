@@ -20,8 +20,7 @@
             <div class="row mb-3"><a routerLink="add-motor" class="menu"><i class="fas fa-plus mr-3"></i> Tambah Motor</a>
             </div>
             <hr>
-            <div class="row mt-5"><a routerLink="logout" class="menu"><i class="fas fa-sign-out-alt mr-3"></i>
-                    Keluar</a></div>
+            <div class="row mt-5"><button class="btn" (click)="authService.signOut()"><i class="fas fa-sign-out-alt mr-3"></i> Keluar</button></div>
         </div>
         <div class="col-md-10">
             <div class="container mt-3">
