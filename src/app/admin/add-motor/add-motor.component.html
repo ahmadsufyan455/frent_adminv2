@@ -1,0 +1,30 @@
+<div class="submit-form">
+    <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="type">Jenis</label>
+            <input type="text" class="form-control" id="type" required [(ngModel)]="motor.type" name="type" />
+        </div>
+        <div class="form-group">
+            <label for="image">Link Gambar</label>
+            <input type="text" class="form-control" id="image" required [(ngModel)]="motor.image" name="image" />
+        </div>
+        <div class="form-group">
+            <label for="description">Deskripsi</label>
+            <input class="form-control" id="description" required [(ngModel)]="motor.description" name="description" />
+        </div>
+        <div class="form-group">
+            <label for="price">Harga</label>
+            <input type="number" class="form-control" id="price" required [(ngModel)]="motor.price" name="price" />
+        </div>
+        <div class="form-group">
+            <label for="quantity">Jumlah</label>
+            <input type="number" class="form-control" id="quantity" required [(ngModel)]="motor.quantity"
+                name="quantity" />
+        </div>
+        <button (click)="saveMotor()" class="btn">Kirim</button>
+    </div>
+    <div *ngIf="submitted">
+        <h4>Berhasil menambahkan motor!</h4>
+        <button class="btn" (click)="newMotor()">Tambah Motor</button>
+    </div>
+</div>

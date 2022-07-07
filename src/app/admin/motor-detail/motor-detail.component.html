@@ -1,0 +1,48 @@
+<div *ngIf="currentMotor" class="edit-form">
+    <h4>Motor</h4>
+    <form>
+        <div class="form-group">
+            <label for="type">Jenis</label>
+            <input type="text" class="form-control" id="type" [(ngModel)]="currentMotor.type" name="type" />
+        </div>
+        <div class="form-group">
+            <label for="description">Deskripsi</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="currentMotor.description"
+                name="description" />
+        </div>
+        <div class="form-group">
+            <label for="image">Link Gambar</label>
+            <input type="text" class="form-control" id="image" [(ngModel)]="currentMotor.image" name="image" />
+        </div>
+        <div class="form-group">
+            <label for="price">Harga/hari</label>
+            <input type="number" class="form-control" id="price" [(ngModel)]="currentMotor.price" name="price" />
+        </div>
+        <div class="form-group">
+            <label for="quantity">Jumlah</label>
+            <input type="number" class="form-control" id="quantity" [(ngModel)]="currentMotor.quantity"
+                name="quantity" />
+        </div>
+        <div class="form-group">
+            <label><strong>Status:</strong></label>
+            {{ currentMotor.status ? "Tersedia" : "Tidak Tersedia" }}
+        </div>
+    </form>
+    <button class="badge badge-primary mr-2" *ngIf="currentMotor.status" (click)="updatestatus(false)">
+        UnPublish
+    </button>
+    <button *ngIf="!currentMotor.status" class="badge badge-primary mr-2" (click)="updatestatus(true)">
+        Publish
+    </button>
+    <button class="badge badge-danger mr-2" (click)="deleteMotor()">
+        Hapus
+    </button>
+    <button type="submit" class="badge badge-success" (click)="updateMotor()">
+        Perbarui
+    </button>
+    <p>{{ message }}</p>
+</div>
+<div *ngIf="!currentMotor">
+    <br />
+    <p>Tidak dapat mengakases motor...</p>
+</div>

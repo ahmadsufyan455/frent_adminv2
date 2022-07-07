@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #EF5350;
+}
+
+.drawer {
+    padding-left: 50px;
+    padding-top: 30px;
+    background-color: #F47C7A;
+    height: 100vh;
+}
+
+.menu {
+    text-decoration: none;
+    color: white;
+}
