@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3" *ngIf="bookings?.length != 0">
     <div class="col">
         <h4 class="mb-3">Daftar Pesanan</h4>
     </div>
@@ -34,56 +34,67 @@
 </div>
 
 
-<table class="table table-striped table-bordered" cellspacing="0" width="100%" id="booking-table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" class="th-sm">No</th>
-            <th class="th">Nama</th>
-            <th class="th">No Whatsapp</th>
-            <th class="th">Motor</th>
-            <th class="th">Tgl Mulai</th>
-            <th class="th">Tgl Selesai</th>
-            <th class="th">Jam Jemput</th>
-            <th class="th">Lama Sewa</th>
-            <th class="th">Lokasi Jemput</th>
-            <th class="th">Lokasi Antar</th>
-            <th class="th">Total Harga</th>
-            <th class="th">Keperluan</th>
-            <th class="th">Status</th>
-            <th class="th">Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let booking of bookings; let num = index" [class.active]="num == currentIndex"
-            (click)="setActiveBooking(booking, num)">
-            <th scope="row">{{num+1}}</th>
-            <td>{{booking.name}}</td>
-            <td>{{booking.phoneNumber}}</td>
-            <td>{{booking.motorType}}</td>
-            <td>{{booking.startDate}}</td>
-            <td>{{booking.endDate}}</td>
-            <td>{{booking.startTime}}</td>
-            <td>{{booking.days}} Hari</td>
-            <td>{{booking.pickUpLocation}}</td>
-            <td>{{booking.deliveryLocation}}</td>
-            <td>{{booking.totalPrice}}</td>
-            <td>{{booking.note}}</td>
-            <div *ngIf="booking.isConfirm == true;else waiting">
-                <div *ngIf="booking.isFinish == true;then end else confirm"></div>
-            </div>
-            <ng-template #waiting>
-                <td style="color: red;">Menunggu Konfirmasi</td>
-            </ng-template>
-            <ng-template #confirm>
-                <td style="color: green;">Dikonfirmasi</td>
-            </ng-template>
-            <ng-template #end>
-                <td style="color: blue;">Selesai</td>
-            </ng-template>
-            <td>
-                <button class="badge badge-success mr-2" (click)="updateConfirmStatus(true, num)">Konfirmasi</button>
-                <button class="badge badge-primary" (click)="updateEndStatus(true, num)">Selesaikan</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div *ngIf="bookings?.length != 0;else imgNoData">
+    <table class="table table-striped table-bordered" cellspacing="0" width="100%" id="booking-table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="th-sm">No</th>
+                <th class="th">Nama</th>
+                <th class="th">No Whatsapp</th>
+                <th class="th">Motor</th>
+                <th class="th">Tgl Mulai</th>
+                <th class="th">Tgl Selesai</th>
+                <th class="th">Jam Jemput</th>
+                <th class="th">Lama Sewa</th>
+                <th class="th">Lokasi Jemput</th>
+                <th class="th">Lokasi Antar</th>
+                <th class="th">Total Harga</th>
+                <th class="th">Keperluan</th>
+                <th class="th">Status</th>
+                <th class="th">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookings; let num = index" [class.active]="num == currentIndex"
+                (click)="setActiveBooking(booking, num)">
+                <th scope="row">{{num+1}}</th>
+                <td>{{booking.name}}</td>
+                <td>{{booking.phoneNumber}}</td>
+                <td>{{booking.motorType}}</td>
+                <td>{{booking.startDate}}</td>
+                <td>{{booking.endDate}}</td>
+                <td>{{booking.startTime}}</td>
+                <td>{{booking.days}} Hari</td>
+                <td>{{booking.pickUpLocation}}</td>
+                <td>{{booking.deliveryLocation}}</td>
+                <td>{{booking.totalPrice}}</td>
+                <td>{{booking.note}}</td>
+                <div *ngIf="booking.isConfirm == true;else waiting">
+                    <div *ngIf="booking.isFinish == true;then end else confirm"></div>
+                </div>
+                <ng-template #waiting>
+                    <td style="color: red;">Menunggu Konfirmasi</td>
+                </ng-template>
+                <ng-template #confirm>
+                    <td style="color: green;">Dikonfirmasi</td>
+                </ng-template>
+                <ng-template #end>
+                    <td style="color: blue;">Selesai</td>
+                </ng-template>
+                <td>
+                    <button class="badge badge-success mr-2" (click)="updateConfirmStatus(true, num)">Konfirmasi</button>
+                    <button class="badge badge-primary" (click)="updateEndStatus(true, num)">Selesaikan</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #imgNoData>
+    <div class="d-flex justify-content-center mt-5">
+        <img src="../../../assets/no_data.png" alt="No data" width="30%">
+    </div>
+    <div class="d-flex justify-content-center">
+        <p>Tidak ada data!</p>
+    </div>
+</ng-template>

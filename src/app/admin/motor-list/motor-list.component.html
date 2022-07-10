@@ -4,8 +4,13 @@
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let motor of motors; let i = index" [class.active]="i == currentIndex"
                 (click)="setActiveMotor(motor, i)">
-                <b>{{ motor.type }}</b> | Tersedia {{motor.quantity}} motor
-            </li>
+                <div *ngIf="motor.quantity != 0; else zero">
+                    <b>{{ motor.type }}</b> | Tersedia {{motor.quantity}} motor
+                </div>
+                <ng-template #zero>
+                    <div style="color: red;"><b>{{ motor.type }}</b> | Tersedia {{motor.quantity}} motor</div>
+                </ng-template>
+            </li>   
         </ul>
     </div>
     <div class="col-md-6">
