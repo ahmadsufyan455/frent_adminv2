@@ -5,6 +5,7 @@ import { Booking } from 'src/app/models/booking.model';
 import { User } from 'src/app/models/user.model';
 import { Motor } from 'src/app/models/motor.model';
 import { MotorService } from 'src/app/services/motor.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,14 @@ export class DashboardComponent implements OnInit {
     this.retrieveBookingData();
     this.retrieveUserData();
     this.retrieveMotorData();
+  }
+
+  exportExcel(): void {
+    let element = document.getElementById('booking-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+     XLSX.writeFile(wb, 'booking-data.xlsx');
   }
 
   refreshList(): void {

@@ -3,3 +3,8 @@ table {
     overflow-x: auto;
     white-space: nowrap;
 }
+
+.btn {
+    background-color: #EF5350;
+    color: white;
+}
