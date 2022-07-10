@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../services/user';
+import { Admin } from './admin';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -44,6 +44,34 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
+  }
+
+  // Sign up with email/password
+  signUp(email: string, password: string) {
+    return this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.setUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+  }
+
+  setUserData(admin: any) {
+    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `AdminData/${admin.uid}`
+    );
+    const adminData: Admin = {
+      uid: admin.uid,
+      email: admin.email,
+      displayName: admin.displayName,
+      photoURL: admin.photoURL,
+      emailVerified: admin.emailVerified,
+    };
+    return adminRef.set(adminData, {
+      merge: true,
+    });
   }
 
   get isLoggedIn(): boolean {

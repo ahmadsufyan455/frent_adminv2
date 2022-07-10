@@ -1,1 +1,17 @@
-<p>register works!</p>
+<div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <h3>Sign Up</h3>
+            <div class="formGroup">
+                <input type="email" class="formControl" placeholder="Email Address" #userEmail required />
+            </div>
+            <div class="formGroup">
+                <input type="password" class="formControl" placeholder="Password" #userPwd required />
+            </div>
+            <div class="formGroup">
+                <input type="button" class="btn btnPrimary" value="Sign Up"
+                    (click)="authService.signUp(userEmail.value, userPwd.value)" />
+            </div>
+        </div>
+    </div>
+</div>
