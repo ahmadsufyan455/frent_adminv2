@@ -34,10 +34,12 @@
             <th class="th">Motor</th>
             <th class="th">Tgl Mulai</th>
             <th class="th">Tgl Selesai</th>
+            <th class="th">Jam Jemput</th>
             <th class="th">Lama Sewa</th>
             <th class="th">Lokasi Jemput</th>
             <th class="th">Lokasi Antar</th>
             <th class="th">Total Harga</th>
+            <th class="th">Keperluan</th>
             <th class="th">Status</th>
             <th class="th">Aksi</th>
         </tr>
@@ -51,10 +53,12 @@
             <td>{{booking.motorType}}</td>
             <td>{{booking.startDate}}</td>
             <td>{{booking.endDate}}</td>
+            <td>{{booking.startTime}}</td>
             <td>{{booking.days}} Hari</td>
             <td>{{booking.pickUpLocation}}</td>
             <td>{{booking.deliveryLocation}}</td>
             <td>{{booking.totalPrice}}</td>
+            <td>{{booking.note}}</td>
             <div *ngIf="booking.isConfirm == true;else waiting">
                 <div *ngIf="booking.isFinish == true;then end else confirm"></div>
             </div>

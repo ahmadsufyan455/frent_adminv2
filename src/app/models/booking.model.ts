@@ -7,6 +7,7 @@ export class Booking {
     address?: string;
     startDate?: string;
     endDate?: string;
+    startTime?: string;
     pickUpLocation?: string;
     deliveryLocation?: string;
     note?: string;
