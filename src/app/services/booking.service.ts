@@ -13,7 +13,7 @@ export class BookingService {
   userRef: AngularFirestoreCollection<User>;
 
   constructor(private db: AngularFirestore) { 
-    this.bookingDataRef = db.collection(this.dbPath);
+    this.bookingDataRef = db.collection(this.dbPath, ref => ref.orderBy('bookingId', 'desc'));
     this.userRef = db.collection(this.dbPathUser);
    }
 
