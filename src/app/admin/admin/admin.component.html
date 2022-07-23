@@ -1,31 +1,40 @@
-<div class="body">
-    <nav class="navbar navbar-expand navbar-dark">
-        <div>
-            <img src="https://www.frentjogja.com/wp-content/uploads/2021/06/logo-sewa-motor-jogja.png" alt="frentjogja"
-                width="40px" class="mr-3">
-            <a href="#" class="navbar-brand">FRENT JOGJA DATABASE</a>
-            <div class="navbar-nav ml-auto">
-                <!-- menu here -->
+<div class="page">
+    <div class="header">
+        <nav class="navbar navbar-expand navbar-dark">
+            <div>
+                <img src="https://www.frentjogja.com/wp-content/uploads/2021/06/logo-sewa-motor-jogja.png" alt="frentjogja"
+                    width="40px" class="mr-3">
+                <a href="#" class="navbar-brand">FRENT JOGJA DATABASE</a>
+                <div class="navbar-nav ml-auto">
+                    <!-- menu here -->
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="row">
+        </nav>
+    </div>
+    <div class="row content">
         <div class="col-md-2 drawer">
-            <div class="row mb-3"><a routerLink="dashboard" class="menu"><i class="fas fa-book mr-3"></i> Daftar
-                    Pesanan</a></div>
-            <hr>
-            <div class="row mb-3"><a routerLink="motor" class="menu"><i class="fas fa-list mr-3"></i> Daftar Motor</a>
+            <div class="position-fixed">
+                <div class="row mb-3"><a routerLink="dashboard" class="menu"><i class="fas fa-book mr-3"></i> Daftar
+                        Pesanan</a></div>
+                <hr>
+                <div class="row mb-3"><a routerLink="motor" class="menu"><i class="fas fa-list mr-3"></i> Daftar Motor</a>
+                </div>
+                <hr>
+                <div class="row mb-3"><a routerLink="add-motor" class="menu"><i class="fas fa-plus mr-3"></i> Tambah Motor</a>
+                </div>
+                <hr>
+                <div class="row mt-5"><button class="btn" (click)="authService.signOut()"><i class="fas fa-sign-out-alt mr-3"></i>
+                        Keluar</button></div>
             </div>
-            <hr>
-            <div class="row mb-3"><a routerLink="add-motor" class="menu"><i class="fas fa-plus mr-3"></i> Tambah Motor</a>
-            </div>
-            <hr>
-            <div class="row mt-5"><button class="btn" (click)="authService.signOut()"><i class="fas fa-sign-out-alt mr-3"></i> Keluar</button></div>
         </div>
         <div class="col-md-10">
             <div class="container mt-3">
                 <router-outlet></router-outlet>
             </div>
         </div>
+    </div>
+    <div class="footer text-center">
+        <hr>
+        <p style="font-family: cursive; color: grey;">Frent Admin v2 - 2022</p>
     </div>
 </div>
