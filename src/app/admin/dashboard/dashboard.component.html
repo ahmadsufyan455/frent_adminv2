@@ -67,7 +67,7 @@
                 <td>{{booking.days}} Hari</td>
                 <td>{{booking.pickUpLocation}}</td>
                 <td>{{booking.deliveryLocation}}</td>
-                <td>{{booking.totalPrice}}</td>
+                <td>{{booking.totalPrice | currency:'Rp. ':'symbol':'3.0'}}</td>
                 <td *ngIf="booking.note != ''; else emptynote">{{booking.note}}</td>
                 <div *ngIf="booking.isConfirm == true;else waiting">
                     <div *ngIf="booking.isFinish == true;then end else confirm"></div>
