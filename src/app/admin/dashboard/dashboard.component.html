@@ -68,10 +68,13 @@
                 <td>{{booking.pickUpLocation}}</td>
                 <td>{{booking.deliveryLocation}}</td>
                 <td>{{booking.totalPrice}}</td>
-                <td>{{booking.note}}</td>
+                <td *ngIf="booking.note != ''; else emptynote">{{booking.note}}</td>
                 <div *ngIf="booking.isConfirm == true;else waiting">
                     <div *ngIf="booking.isFinish == true;then end else confirm"></div>
                 </div>
+                <ng-template #emptynote>
+                    <td>-</td>
+                </ng-template>
                 <ng-template #waiting>
                     <td style="color: red;">Menunggu Konfirmasi</td>
                 </ng-template>
